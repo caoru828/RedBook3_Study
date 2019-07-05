@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<script>
+
+// 数据类型：基本（undefined 、 null 、 Boolean 、 number 、 string）， 复杂（object）
+// typeof的值 : undefined 、 Boolean 、 string 、 number 、 object（object或null返回object，null被认为是空对象的引用） 、 function
+
+
+// 一、undefined 类型
+var msg;
+console.log(typeof msg)
+console.log(msg == undefined); // true
+// 不赋值等价于 
+msg = undefined;
+console.log(msg == undefined); // true
+// var msg1 = 'undefined'   字符串
+// console.log(msg1 == 'undefined') // true
+
+// 未定义和undefined值不一样，age未定义
+// var age;
+console.log("111");
+// console.log(age); // 错误 age is not defined
+console.log(typeof age); // undefined
+
+// 二、null 类型
+// 表示空对象指针 typeof 时返回object
+var cat = null;
+console.log(typeof cat);
+// 如果以后要保存对象，最好把变量初始化null
+if (cat != null){
+// 对cat 对象执行某些操作
+}
+// undefined值 是 null值 的派生
+console.log(null == undefined); // true
+
+
+// 三、boolean值
+// 只有全小写，其他都作为标识符
+console.log("* boolean *")
+var found = true;
+console.log(found);  // true
+console.log(typeof found); // boolean
+
+// var found = True;
+// console.log(found);//True is not defined
+// console.log(typeof found);
+
+// var found = TRUE;
+// console.log(found);
+// console.log(typeof found);
+
+// 转换成Boolean, Boolean();
+var msg2 = "hello";
+console.log(msg2 , " ", typeof msg2); // hello string
+console.log(Boolean(msg2)); // true
+console.log(Boolean(""));   // false ,非字符串是true
+console.log(Boolean(NaN));  // false
+console.log(Boolean(0));    // false
+console.log(Boolean(null)); // false
+console.log(Boolean(Number.POSITIVE_INFINITY)); // true
+console.log(Boolean(Number.NEGATIVE_INFINITY)); // true
+// Number.POSITIVE_INFINITY Infinity
+// if(){
+// 	// if()可自动转换成Boolean
+// }
+
+
+// 四、Number
+// 十进制
+var num1 = 33;
+// 八进制  --- 第一个数必须是0，然后是八进制序列（0-7）
+var num2 = 070;
+console.log(num2); // 56
+var num3 = 079;
+console.log(num3); // 无效八进制，解析为 79
+function test(){
+	// "use strict"  严格模式不允许八进制 Uncaught SyntaxError: Decimals with leading zeros are not allowed in strict mode.
+	var num2 = 070;
+	console.log(num2); // 56
+	var num3 = 079;
+	console.log(num3); // 无效八进制，解析为 79
+}
+// 十六进制 --- 前两个数必需是0x，后边可以跟任何十六进制数字（0-9 及 A~F）
+var num161 = 0xA;
+console.log(num161);
+console.log(+0 === -0 ); // +0 -0 相等
+
+// 四.1 浮点数值 --- 数值包含一个小数点，小数点后边必须至少包含一个数字，前面可以没有整数
+var float11 = 0.11;
+var float12 = 3.134e8; // 3.134乘以10的8次幂；  313400000
+console.log(float12);  // 6个0以上的浮点数用e表示
+var a = 0.1,b=0.2;
+console.log(a+b); // 0.30000000000000004
+// 浮点数的最高精度是17位小数  浮点数 而Number采用的时IEEE 754 64位双精度浮点数编码 当64bit的存储空间无法存储完整的无限循环小数，而IEEE 754 Floating-point采用round to nearest, tie to even的舍入模式 导致0.1 0.2 转换之后不准确，相加不得0.3
+
+// 解决 https://www.cnblogs.com/raind/p/10017598.html  
+// Number.EPSILON ES6
+Number.EPSILON=(function(){   //解决兼容性问题
+        return Number.EPSILON?Number.EPSILON:Math.pow(2,-52);
+      })();
+//上面是一个自调用函数，当JS文件刚加载到内存中，就会去判断并返回一个结果，相比if(!Number.EPSILON){
+  //   Number.EPSILON=Math.pow(2,-52);
+  //}这种代码更节约性能，也更美观。
+function numbersequal(a,b){ 
+    return Math.abs(a-b)<Number.EPSILON;
+  }
+//接下来再判断   
+    var a=0.1+0.2, b=0.3;
+  console.log(numbersequal(a,b)); //这里就为true了
+// 四.2 数值范围
+console.log(Number.MIN_VALUE); // 5e-324
+console.log(Number.MAX_VALUE); // 1.7976931348623157e+308
+console.log(Number.POSITIVE_INFINITY); // Infinity
+console.log(Number.NEGATIVE_INFINITY); // -Infinity
+// Number.POSITIVE_INFINITY Infinity
+
+// isFinite 判断是不是无限
+console.log(isFinite(Number.MAX_VALUE+Number.MAX_VALUE)); //false
+
+// 四.3 NaN
+console.log(NaN == NaN);   // false
+console.log(isNaN(NaN));   // true
+console.log(isNaN(10));    // false
+console.log(isNaN("10"));  // false 转换成数10
+console.log(isNaN("xxx")); // true  转换不了数值
+console.log(isNaN(true));  // false 转化成数值1
+
+
+</script>
+</body>
+</html>
