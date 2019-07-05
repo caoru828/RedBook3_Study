@@ -131,6 +131,64 @@ console.log(isNaN("10"));  // false 转换成数10
 console.log(isNaN("xxx")); // true  转换不了数值
 console.log(isNaN(true));  // false 转化成数值1
 
+// 四.4 数值转换
+// Number(任意) parseInt(字符串) parseFloat(字符串) 
+console.log("--------------------------");
+var num111 = Number(true); // 1
+console.log(num111);
+var num112 = Number(false); // 0
+console.log(num112);
+var num113 = Number(1111);  // 1111
+console.log(num113);
+console.log(Number(null));  // 0
+console.log(Number(undefined));  // NaN  **
+// 八进制和十六进制需要转换成十进制
+console.log(Number(070));  // 56
+// Number(0000000011) // 9
+console.log(Number(0xf));  // 15
+console.log(Number());  // 0
+console.log(Number("999u"));  // NaN
+
+var dog = {
+	age: 11,
+	sex: "male"
+}
+console.log(Number(dog.age)); // 11
+console.log(Number(dog.sex)); // NaN
+console.log(dog.age.valueOf()); // 11
+// Number()  ==> valueof() --> 非数值 --> toString
+
+console.log(parseInt("1234blue"));  //1234
+console.log(parseInt(""));			//NaN
+console.log(parseInt("0xf"));		//15
+console.log(parseInt(070));			//56
+console.log(parseInt("070"));		//70
+console.log(parseInt("11.9"));		//11
+console.log(parseInt("70"));		//70
+
+function test1(){
+	console.log("test1 ");
+	"use strict" // 严不严格都70
+	console.log(parseInt("070"));
+}
+test1();
+// 第二个参数进制，有16，不加0x也行
+console.log(parseInt("0xf",16)); // 15
+console.log(parseInt("f",16));   // 15
+console.log(parseInt("f"));      // NaN
+
+console.log(parseInt("10",2));  // 2
+console.log(parseInt("10",8));  // 8
+console.log(parseInt("10",10)); // 10
+console.log(parseInt("10",16)); // 16
+
+// 忽略前导0，到第一个有效小数点，只解析十进制
+console.log(parseFloat("22.77.9"));  // 22.77
+console.log(parseFloat("1234blue")); // 1234
+console.log(parseFloat("0xf"));      // 0
+console.log(parseFloat("22.77"));    // 22.77
+console.log(parseFloat("022.77"));   // 22.77
+console.log(parseFloat("3.125e7"));  //31250000
 
 </script>
 </body>
