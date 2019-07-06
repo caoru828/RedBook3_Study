@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// this
+		console.log(this);	// window
+
+		a = 11;       // window.a = 11
+		var a = 12;   // window.a = 12
+ 		this.a = 10;  // window.a = 10
+		window.a = 5; // window.a = a
+		console.log(a); // 5
+
+
+		// self 当前页面的根节点
+		console.log(self == this);  // true
+	</script>
+</body>
+</html>

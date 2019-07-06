@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+		// string
+		var a = 'anc';
+		var b = 'anc';
+		var c = new String('anc');  // new之后 typeof 是 object   三等判断类型
+		var c1 = new String('anc'); // c != c1; 任何对象都是不相等的 字面量才可能相等
+
+		var d = [1,3,4];  // 内部还是会解析成 new  等价于  d = new Array()
+		var e = [1,3,4];
+		var f = new Array(1,3,4);
+
+		console.log(a == b);    // true
+		console.log(a === b);   // true
+		console.log(a == c);    // true
+		console.log(b === c);   // false
+
+		console.log(d == e);    // false
+		console.log(d === e);   // false
+		console.log(e == f);    // false
+
+		// 数组
+		var a = [1,2,3];
+		var b = a;
+		a.push(1);
+		console.log(b); // 1231
+		
+		var x = [1,2,3];
+		function b2(e){
+			e.push(1);
+		}
+		b2(x);
+		console.log(x); // 1231
+
+		var x = [1,2,3];
+		function b3(e){
+			e = [4,5,6];
+			console.log("e = ",e);
+			console.log("x = ",x)
+		}
+		b3(x);
+		console.log(x); // 123
+
+
+		// number
+		var a = new Number(1);
+		var b = new Number(1);
+		console.log(a == b);    // false  new 是对象 对象不相等
+
+		// boolean true 1   false 0
+		
+		// function
+		function show(a, b){};
+		console.log(show.length);  // 2 函数的length 就是参数的总数
+
+		// undefined
+		console.log(undefined == null);  // true
+		console.log(undefined === null); // false		
+		console.log(undefined > null);   // false 数据格式不同
+		console.log(undefined < null);   // false 数据格式不同
+	</script>
+</body>
+</html>
