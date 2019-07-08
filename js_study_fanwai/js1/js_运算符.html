@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	
+	<script>
+
+        // =
+		var a = 10;
+		var b = 15;
+		var c = 20;
+		console.log(a = b); // 15 赋值语句，返回值，不是boolean
+		console.log(a == b); // true
+		console.log(a = c);  // 20
+
+		console.log(1=='1'); // true
+
+		// +
+		var a = 10;
+		// console.log(++a); // 11 先++再赋值
+		console.log(a++); // 10 先赋值再++
+		// console.log(a);
+
+		var a = 10;
+		a+=5; // a= a+5;
+
+		// % 取余
+		console.log(10%3); // 1
+		console.log(3%10); // 3
+
+		// + 
+		// + 号 见到字符串就拼接
+		// ‘1’+1 = 11
+		console.log(1+'2'*3); // 7
+		console.log('1'+2*3); // 16 ---- ‘1’ + 6 == 16  string
+		var a = 10;
+		a+='5';
+		console.log(a); // 105
+
+		console.log('5' < '5'); // false
+
+		console.log(100 < 100.00000000000001); // true 13个0之前都是true，大于13个0就不精准了，就是false了
+
+		console.log(0.1+0.2); // 0.30000000000000004  IEEE754 
+
+		// 连续计算
+		console.log(1>2 == false === true - 1); // true
+
+		// 三目运算符
+		console.log(1?2:3); // 2
+		
+
+		console.log(!document.getElementById('div')); // true;
+		// onload = function(){
+		// 	console.log(!document.getElementById('div')); // false
+		// }
+
+		
+		onload = function(){
+			var btn = document.getElementById('btn');
+			var oDiv = document.getElementById('div');
+			var flag = true;
+			btn.onclick = function(){
+				flag = !flag;
+				flag?oDiv.style.display = 'block':oDiv.style.display = 'none';
+			}
+		}
+
+		// ||
+		a = 10 || console.log(111); // 不出111 相当于 true || console.log(111)      || 前面是true不往后看
+		// &&
+		var a = 111;
+		if(a == 11103 && aerawerawf){ // 前面不满足不往后看，前面条件满足一直往后看
+			console.log("&&&"); 
+		}
+
+		if(window)alert(22); // 等价于下边
+		window&&alert(22);
+		console.log(1&&22&55); // 55
+	</script>
+	<input type="button" value="btn" id="btn">
+	<div id="div"></div>
+</body>
+</html>

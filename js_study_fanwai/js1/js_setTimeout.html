@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// setTimeout(function(){
+		// 	console.log(1111)
+		// },1000);
+
+		// setTimeout 第二个参数错了会以0毫秒执行
+		// "1000" 1000毫秒执行
+		// setTimeout(function(){
+		// 	console.log(1111)
+		// },"100033f");
+
+		// setTimeout 
+		// 特点：
+		// 1、有误差，不一定是真是的1s  2、js会把非定时器的处理掉再走定时器的
+		var c = 5;
+		// setTimeout(function(){
+		// 	a = 10;
+		// },1000);
+		// console.log(a); // 
+		// setTimeout(function(){ // 相当于吧setTimeout放在了console后边
+		// 	a = 10;
+		// },-10);
+		
+		setTimeout(function(){
+			c = 10;
+		},1000);
+		for(var i=0;i<100000;i++){
+			for(var j=0;j<100000;j++){
+				var a = 0;
+				a+=12;
+			}
+		}
+		console.log(1);
+		console.log(c);  // 5 最后出定时器，需要把js都执行完再执定时期
+
+		// screenLeft  浏览器距离屏幕最左边的距离
+		console.log(screenLeft)
+		console.log(screenTop)
+	</script>
+</body>
+</html>

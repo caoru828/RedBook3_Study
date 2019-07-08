@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="go" id="ipt">
+	<script>
+		// open 可以打开一个新页面
+		onload = function(){
+			document.getElementById('ipt').onclick = function(){
+				open("https://www.taobao.com/")
+				// close() 关闭当前页面
+			}
+		}
+	</script>
+</body>
+</html>

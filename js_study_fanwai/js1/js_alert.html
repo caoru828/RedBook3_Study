@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		window.alert(alert);  // function alert() { [native code] }
+		console.log(alert);   // ƒ alert() { [native code] }
+		
+		// alert 弹不出对象，但是数组可以
+		var json = { 'a':11 };
+		window.alert(json); // [object Object]
+
+		
+	</script>
+</body>
+</html>

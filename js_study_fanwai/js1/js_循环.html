@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// var $$$ = 111;
+		// console.log($$$);
+		// var @@@ 不行
+
+		// for 
+		var a = 1;
+		for(;a<5;){
+			console.log(a);
+			a++;
+		}
+		for(var i=0;i<10;i+=2){
+			console.log(i);
+		}
+		for(var i = 0;i<10;i++){
+
+		}
+		console.log(i); // 10 最后++了
+		for(var i=0;i<5,i<3;i++){
+			console.log(i); // 0 1 2
+		}
+		for(var i=0;i<5;i++){
+			for(var j=0;j<5;j++){
+				console.log(i+','+j);
+				// 0,0
+				// 0,1
+				// 0,2
+				// 0,3
+				// 0,4
+				// 1,0
+				// 1,1
+				// 1,2
+				// 1,3
+			}
+		}
+
+		// for in
+		// 数组 in 前变量是数组下标i，arr[i]是数组对应下标的值
+		var arr = [10,20,30];
+		var obj = { "a":1,"b":2}
+		for(var i in arr){
+			console.log("i = ", i);
+			console.log("arr["+i+"] = ",arr[i]);
+		}
+		// 对象 in 前的变量是key 对象[key] 是value
+		for(var key in obj){
+			console.log("key = ", key);
+			console.log("value = ",obj[key]);
+		}
+		// 字符串 前变量是数组下标i，string1[i]是字符串对应值 
+		var string1 = 'qwer';
+		// string1[1]  低于IE8就报错 找字符串某一位用charAt()
+		console.log(string1.charAt(2));
+		for(var i in string1){
+			console.log("string i = ",i);
+			console.log("string1",string1[i]);
+		}
+
+		var json = {
+			"name": "xiaoli",
+			"age": "10"
+		}
+
+		for(var i in json){
+			console.log("key: ",i," value = ",json[i]);
+
+		}
+		
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var  i = 0;
+		var  j = 0;
+		while(i<3){
+			while(j<3){
+				console.log(i + " , " + j);
+				j++;
+			}
+			// while 两层时里面走完一圈外边不走了
+			// 0 , 0
+            // 0 , 1
+            // 0 , 2
+			i++;
+		}
+
+		var i = 0;
+		do{
+			console.log("i ",i);
+			i++;
+		}while(i<5);
+	</script>
+</body>
+</html>
